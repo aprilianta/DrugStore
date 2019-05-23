@@ -15,8 +15,32 @@
     $jumlah = $_POST['jumlah_obat'];
     $supplier_obat = $_POST['supplier_obat'];
 
-    $sql = "INSERT INTO inventory (nama_obat,id_kategori,harga_jual,harga_beli,jumlah_obat,id_supplier)
-            VALUES ('$nama_obat','$kategori','$harga_jual','$harga_beli','$jumlah','$supplier_obat')";
+    $ekstensi_diperbolehkan = array('png','jpg');
+    $gmb = $_FILES['gmb']['name'];
+    $x = explode('.', $gmb);
+    $ekstensi = strtolower(end($x));
+    $ukuran = $_FILES['gmb']['size'];
+    $file_tmp = $_FILES['gmb']['tmp_name'];    
+ 
+    if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+        if($ukuran < 1044070){          
+            move_uploaded_file($file_tmp, 'file/'.$gmb);
+            $sql = "INSERT INTO inventory (nama_obat,id_kategori,harga_jual,harga_beli,jumlah_obat,id_supplier,gambar)
+            VALUES ('$nama_obat','$kategori','$harga_jual','$harga_beli','$jumlah','$supplier_obat','$gmb')";
+            if($sql){
+                // echo 'File uploaded successfully';
+            } else{
+                echo 'File failed';
+            }
+       } else {
+            echo 'File size too big';
+          }
+    } else{
+        echo 'File extension does not supported';
+    }
+
+    // $sql = "INSERT INTO inventory (nama_obat,id_kategori,harga_jual,harga_beli,jumlah_obat,id_supplier)
+    //         VALUES ('$nama_obat','$kategori','$harga_jual','$harga_beli','$jumlah','$supplier_obat')";
     $query = mysqli_query($koneksi,$sql) or die (mysqli_error($koneksi));
     if ($query) {
         echo "<script type='text/javascript'>alert('Success!')</script>";

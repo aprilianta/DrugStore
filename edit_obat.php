@@ -83,7 +83,7 @@
                                 <div class="tile">
                                                 <h3 class="tile-title">Form Edit Medicine Data</h3>
                                         <div class="tile-body">
-                                                <form method="POST" action="proses_edit_obat.php">
+                                                <form method="POST" action="proses_edit_obat.php" enctype="multipart/form-data">
                                                 <input name="id" hidden="hidden" value="<?php echo $data['id_obat'];?>">
                                         <div class="form-group row">
                                                 <label class="control-label col-md-3">Name</label>
@@ -135,7 +135,13 @@
                                    </select>
 
                             </div>
-                            </div>
+                      </div>
+                      <div class="form-group row">
+                    <label class="control-label col-md-3">File Photo</label>
+                      <div class="col-md-8">
+                          <input class="form-control-file" name="gmb" id="gmb" type="file" aria-describedby="fileHelp"><small class="form-text text-muted" id="fileHelp">Please insert a picture.</small>
+                      </div>
+                  </div>
                     <div class="tile-footer">
                       <div class="row">
                         <div class="col-md-8 col-md-offset-3">
