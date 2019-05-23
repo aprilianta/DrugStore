@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2019 at 09:09 PM
+-- Generation Time: May 23, 2019 at 10:07 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -208,11 +208,11 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id_obat`, `nama_obat`, `id_kategori`, `harga_jual`, `harga_beli`, `jumlah_obat`, `id_supplier`, `gambar`) VALUES
-(5, 'Tolak Angin', 2, 1000, 900, 10, 2, 'amigdala - ku kira kau rumah.jpg'),
-(9, 'Mylanta', 2, 1200, 900, 10, 1, ''),
-(13, 'Panadol', 2, 1200, 900, 15, 4, ''),
-(15, 'Minol', 2, 1000, 900, 20, 1, ''),
-(22, 'Amoxcilin', 1, 1500, 1200, 20, 3, '');
+(5, 'Tolak Angin', 2, 1000, 900, 10, 2, 'tolak-angin.png'),
+(9, 'Mylanta', 2, 1200, 900, 10, 1, 'mylanta.png'),
+(13, 'Panadol', 2, 1200, 900, 15, 4, 'panadol.png'),
+(15, 'Minol', 2, 1000, 900, 20, 1, 'minol.png'),
+(22, 'Amoxcilin', 1, 1500, 1200, 20, 3, 'amoxicillin.png');
 
 -- --------------------------------------------------------
 

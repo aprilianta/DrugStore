@@ -102,6 +102,7 @@
                     <th>Purchase Price</th>
                     <th>Quantity</th>
                     <th>Supplier</th>
+                    <th>Photo</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -116,6 +117,7 @@
             }
             while ($data=mysqli_fetch_array($tampil)) { ?>
             <td hidden="hidden"> <?php echo $data['id_obat'];?> </td>
+            <?php $cocok = $data['id_obat'];?>
             <td align="center"> <?php echo $no;?> </td>
             <td align="left"> <?php echo $data['nama_obat'];?> </td>
             <td align="center"> <?php echo $data['nama_kategori'];?> </td>
@@ -124,12 +126,22 @@
             <td align="center"> <?php echo $data['jumlah_obat'];?> </td>
             <td align="left"> <?php echo $data['nama_supplier'];?> </td>
             <td align="center"> 
+              <?php $tampilgambar = mysqli_query($koneksi, "SELECT gambar FROM inventory WHERE id_obat = '$cocok'");
+                while ($datagmb = mysqli_fetch_array($tampilgambar)) {
+                   if ($datagmb != "") { ?>
+                       <img style="width: 100px" src="<?php echo 'file/'.$datagmb['gambar']; ?>" ></td>
+                  <?php } 
+                  else {
+                     echo "Photo not found";
+                  } ?> 
+            <?php } ?>
+            <td align="center"> 
                     <a href="edit_obat.php?id= <?php echo $data['id_obat']; ?>"> <button class="btn btn-warning"> <i class="icon fa fa-pencil"></i> Edit</button> </a>
                     <a href="hapus_obat.php?id= <?php echo $data['id_obat']; ?>"> <button class="btn btn-danger"> <i class="icon fa fa-trash"></i> Hapus</button> </a>
             </td>
             <?php $no++; ?>
         </tr>
-                <?php } }?>
+                <?php } } ?>
     </table>
 </button>
 </button>
