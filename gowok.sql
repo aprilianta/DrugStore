@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2019 at 09:29 AM
+-- Generation Time: May 23, 2019 at 09:09 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -200,7 +200,7 @@ CREATE TABLE `inventory` (
   `harga_beli` double NOT NULL,
   `jumlah_obat` int(11) NOT NULL,
   `id_supplier` int(11) NOT NULL,
-  `gambar` blob NOT NULL
+  `gambar` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -208,8 +208,8 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id_obat`, `nama_obat`, `id_kategori`, `harga_jual`, `harga_beli`, `jumlah_obat`, `id_supplier`, `gambar`) VALUES
-(5, 'Tolak Angin', 2, 1000, 900, 10, 3, ''),
-(9, 'Mylanta', 2, 1200, 900, 10, 2, ''),
+(5, 'Tolak Angin', 2, 1000, 900, 10, 2, 'amigdala - ku kira kau rumah.jpg'),
+(9, 'Mylanta', 2, 1200, 900, 10, 1, ''),
 (13, 'Panadol', 2, 1200, 900, 15, 4, ''),
 (15, 'Minol', 2, 1000, 900, 20, 1, ''),
 (22, 'Amoxcilin', 1, 1500, 1200, 20, 3, '');
@@ -490,7 +490,7 @@ ALTER TABLE `detail_retur`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id_obat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_obat` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
